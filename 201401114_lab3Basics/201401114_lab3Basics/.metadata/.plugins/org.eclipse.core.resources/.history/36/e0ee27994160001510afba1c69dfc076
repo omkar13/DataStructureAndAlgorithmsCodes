@@ -1,0 +1,29 @@
+package Q1;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner (System.in);
+		System.out.println("enter heap elements in order");
+		int n=sc.nextInt();
+		sc.nextLine();
+		String in[]=sc.nextLine().split(" ");
+		int arr[]=new int [n];
+		
+		for(int i=0;i<n;i++){
+			arr[i]=Integer.parseInt(in[i]);
+		}
+
+		int i=sc.nextInt();
+		int parent=arr[(int)Math.floor((i-1)/2.0)];
+		int leftChild=arr[2*i+1];
+		int rightChild=arr[2*i+2];
+		
+		System.out.println("parent is: " + parent + "\nleft child is: " + leftChild + "\nright child is: " + rightChild );
+		
+	}
+
+}

@@ -1,0 +1,95 @@
+package Q3;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);		
+		boolean done=false;
+		int o;
+		BinarySearchTree bst=new BinarySearchTree();
+		System.out.println("enter no of elements to insert initially");
+		int n=sc.nextInt();sc.nextLine();
+		
+		for(int i=1;i<=n;i++){
+			bst.insert(sc.nextInt());
+		}
+		sc.nextLine();
+		
+		while(done==false){
+			System.out.println("enter\n 1 : for inserting a node \n "
+					+ "2 : search node with given key\n "
+					+ "3 : max of subtree with node of given key\n "
+					+ "4 : min of subtree with node of given key\n "
+					+ "5 : successor of node with given key\n"
+					+ "6 : predecessor of node with given key\n"
+					+ "7 : EXIT");
+			
+		o=sc.nextInt();
+		sc.nextLine();
+		
+		switch(o){
+		case 1: {
+					int k=sc.nextInt();sc.nextLine();
+					bst.insert(k);
+					break;
+				}
+		case 2: {
+					int k=sc.nextInt();sc.nextLine();
+					Node node=bst.search(k);
+					if(node==null)
+						System.out.println("KEY doesnt exist in bst");
+					else{
+						System.out.println("KEY exists in bst");
+					}
+					break;
+				}
+		
+		case 3: {
+			int k=sc.nextInt();sc.nextLine();
+			Node maxNode=bst.maximum(k);
+			System.out.println("max of subtree of node with given key as root is " + maxNode.getKey());			
+			break;
+			}
+		
+		case 4: {
+			int k=sc.nextInt();sc.nextLine();
+			Node minNode=bst.minimum(k);
+			System.out.println("min of subtree of node with given key as root is " + minNode.getKey());			
+			break;
+		}
+		
+		case 5: {
+			int k=sc.nextInt();sc.nextLine();
+			Node successor=bst.successor(k);
+			if(successor!=null)
+				System.out.println("successor of given node is" + successor.getKey());			
+			else
+				System.out.println("successor doesnt exist");
+			break;
+			}
+		
+		case 6: {
+			int k=sc.nextInt();sc.nextLine();
+			Node predecessor=bst.predecessor(k);
+			System.out.println("predecessor of given node is" + predecessor.getKey());			
+			break;
+			}
+				
+		case 7 : {
+				done=true;
+				}
+		
+		}
+		
+			
+			
+		}
+		
+		
+		sc.close();
+
+	}
+
+}

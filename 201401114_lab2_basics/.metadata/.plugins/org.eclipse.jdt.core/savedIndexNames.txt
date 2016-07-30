@@ -1,0 +1,14 @@
+INDEX VERSION 1.126+/home/student/Desktop/LAB2_201401114/.metadata/.plugins/org.eclipse.jdt.core
+3559450647.index
+1956110526.index
+3077074473.index
+1349566374.index
+90415190.index
+3833798302.index
+3078544640.index
+3615230348.index
+838985556.index
+751113926.index
+2950597482.index
+4171574391.index
+1128322853.index

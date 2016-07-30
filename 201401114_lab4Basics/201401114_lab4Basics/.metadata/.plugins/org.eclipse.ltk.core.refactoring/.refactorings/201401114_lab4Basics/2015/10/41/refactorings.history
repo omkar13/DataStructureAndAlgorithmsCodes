@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Q2.heightOfNode_main&apos; to &apos;Main&apos;&#x0A;- Original project: &apos;201401114_lab4Basics&apos;&#x0A;- Original element: &apos;Q2.heightOfNode_main&apos;&#x0A;- Renamed element: &apos;Q2.Main&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;heightOfNode_main&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;Q2{heightOfNode_main.java[heightOfNode_main" matchStrategy="1" name="Main" qualified="false" references="true" similarDeclarations="false" stamp="1444035949286" textual="false" version="1.0"/>
+</session>

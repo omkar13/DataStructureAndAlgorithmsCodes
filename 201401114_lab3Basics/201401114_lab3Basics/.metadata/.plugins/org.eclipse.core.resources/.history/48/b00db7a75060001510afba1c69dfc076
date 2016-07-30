@@ -1,0 +1,48 @@
+package Q4;
+
+public class Main {
+
+	static int heapSize;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	
+	
+	}
+	
+	public static void insert(int arr[],int key){
+		heapSize++;
+		arr[heapSize-1]=Integer.MIN_VALUE;
+		keyValueIncrease(arr,heapSize-1,key);
+		
+	}
+		
+	public static void keyValueIncrease(int arr[],int i,int newKey){
+		
+		int parentIndex=(int)Math.floor((i-1)/2.0);
+		
+		if(newKey<arr[i]){
+			System.out.println("new key is smaller than current key!");
+			return;
+		}
+		
+		arr[i]=newKey;
+		
+		while(i>0 && arr[i]>arr[parentIndex]){
+			swap(arr,i,parentIndex);
+			i=parentIndex;
+			parentIndex=(int)Math.floor((i-1)/2.0);
+		}
+		
+	}
+	
+	public static void swap(int arr[],int i,int j){
+		int temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+
+	}
+
+	
+
+}

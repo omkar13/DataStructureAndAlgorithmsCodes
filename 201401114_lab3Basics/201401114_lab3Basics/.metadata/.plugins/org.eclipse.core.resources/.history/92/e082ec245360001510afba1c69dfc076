@@ -1,0 +1,171 @@
+package Q4;
+
+import java.util.Scanner;
+
+public class Main {
+
+	static int heapSize;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner (System.in);
+		
+		System.out.println("enter max size of array");
+		int maxSize=sc.nextInt();
+		sc.nextLine();
+		
+		//System.out.println("enter no of elements in array");
+		//int n=sc.nextInt();
+		//sc.nextLine();
+		//String in[]=sc.nextLine().split(" ");
+		int arr[]=new int [maxSize];
+		heapSize=0;
+	/*	
+		for(int i=0;i<n;i++){
+			arr[i]=Integer.parseInt(in[i]);
+		}
+	*/
+		boolean loop=true;
+		
+		while(loop){
+			System.out.println("enter \n 1: to insert"
+								+ " 2: to delete max"
+								+ " 3: to increase key value"
+								+ "	4: to decrease key value"
+								+ " 5: exit");
+			
+			int option=sc.nextInt();
+			sc.nextLine();
+			
+			switch(option){
+			
+			case 1:int a=sc.nextInt();
+					sc.nextLine();
+					insert(arr,a);
+					print(arr);
+					break;
+					
+			case 2: System.out.println("deleted element is:  " + deleteMax(arr));		
+					print(arr);
+					break;
+			
+			case 3: int i=sc.nextInt();
+				int newKey=sc.nextInt();
+				sc.nextLine();
+				keyValueIncrease(arr,i,newKey);
+				print(arr);
+				break;
+			
+			case 4:int i1=sc.nextInt();
+				int newKey1=sc.nextInt();
+				sc.nextLine();
+				keyValueDecrease(arr,i1,newKey1);
+				print(arr);
+				break;
+				
+			case 5: loop=false;
+			}
+			
+		}
+		
+		
+		
+	
+	
+	}
+	
+	public static void insert(int arr[],int key){
+		heapSize++;
+		arr[heapSize-1]=Integer.MIN_VALUE;
+		keyValueIncrease(arr,heapSize-1,key);
+		
+	}
+	
+	public static int deleteMax(int arr[]){
+		if(heapSize==0)
+			{
+			System.out.println("no elements in heap");
+			return -1;
+			}
+		
+		swap(arr,0,heapSize-1);
+		heapSize--;
+		heapify(arr,0,heapSize);
+		
+		return arr[heapSize];
+	}
+		
+	public static void keyValueIncrease(int arr[],int i,int newKey){
+		
+		int parentIndex=(int)Math.floor((i-1)/2.0);
+		
+		if(newKey<arr[i]){
+			System.out.println("new key is smaller than current key!");
+			return;
+		}
+		
+		arr[i]=newKey;
+		
+		while(i>0 && arr[i]>arr[parentIndex]){
+			swap(arr,i,parentIndex);
+			i=parentIndex;
+			parentIndex=(int)Math.floor((i-1)/2.0);
+		}
+		
+	}
+	
+	public static void keyValueDecrease(int arr[],int i,int newKey){
+	
+		if(newKey>arr[i]){
+			System.out.println("new key is larger than current key!");
+			return;
+		}
+		
+		arr[i]=newKey;
+		heapify(arr,i,heapSize);
+	}
+	
+	public static void heapify(int arr[],int i,int heapSize){
+		
+		//	System.out.println("heapify called with i = " + i + " heapSize=  " + heapSize  );
+			int largestIndex=i;
+			int largest=arr[i];
+			
+			if(2*i+1>=heapSize){
+				return;
+			}
+			
+			if(arr[2*i+1]>largest)
+				{
+					largestIndex=2*i+1;
+					largest=arr[2*i+1];
+				}
+			if(2*i+2<heapSize && arr[2*i+2]>largest){
+				largestIndex=2*i+2;
+				largest=arr[2*i+2];
+			}
+			
+			if(largestIndex!=i){
+				swap(arr,i,largestIndex);
+				heapify(arr,largestIndex,heapSize);
+			}
+		}
+	
+	public static void swap(int arr[],int i,int j){
+		int temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+
+	}
+	
+	public static void print(int arr[]){
+		
+		for(int i=0;i<heapSize;i++){
+			System.out.print(arr[i] + " ");
+		}
+		
+		System.out.println();
+	}
+
+	
+
+}

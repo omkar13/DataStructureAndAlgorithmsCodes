@@ -1,0 +1,15 @@
+package Q2;
+
+public class BinarySearchTree {
+
+	private Node root;
+
+	public BinarySearchTree() {
+		this.root = null;
+	}
+	
+	public void insert(int key){
+		root.insert(key);
+	}
+		
+}

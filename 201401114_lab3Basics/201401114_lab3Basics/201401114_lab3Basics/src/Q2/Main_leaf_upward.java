@@ -1,0 +1,73 @@
+package Q2;
+
+import java.util.Scanner;
+
+public class Main_leaf_upward {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner (System.in);
+		System.out.println("enter no of elements in array");
+		int n=sc.nextInt();
+		sc.nextLine();
+		String in[]=sc.nextLine().split(" ");
+		int arr[]=new int [n];
+		
+		for(int i=0;i<n;i++){
+			arr[i]=Integer.parseInt(in[i]);
+		}
+
+		buildMaxHeap(arr);
+		
+		
+		System.out.println("heap made using leaf upward approach is: ");
+		
+		for(int i=0;i<n;i++)
+			System.out.print(arr[i] + " ");
+		
+	}
+	
+	public static void buildMaxHeap(int arr[]){			//leafUpward_approach
+		
+		for(int i=(int)Math.floor((arr.length-2)/2.0);i>=0;i--){
+			heapify(arr,i,arr.length);
+		}
+	}
+	
+	public static void heapify(int arr[],int i,int heapSize){
+		
+	//	System.out.println("heapify called with i = " + i + " heapSize=  " + heapSize  );
+		int largestIndex=i;
+		int largest=arr[i];
+		
+		if(2*i+1>=heapSize){
+			return;
+		}
+		
+		if(arr[2*i+1]>largest)
+			{
+				largestIndex=2*i+1;
+				largest=arr[2*i+1];
+			}
+		if(2*i+2<heapSize && arr[2*i+2]>largest){
+			largestIndex=2*i+2;
+			largest=arr[2*i+2];
+		}
+		
+		if(largestIndex!=i){
+			swap(arr,i,largestIndex);
+			heapify(arr,largestIndex,heapSize);
+		}
+	}
+	
+	public static void swap(int arr[],int i,int j){
+		int temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+
+	}
+
+	
+	
+	
+
+}
